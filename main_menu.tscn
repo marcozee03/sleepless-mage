@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://gpyqpfn1fqpt"]
+
+[ext_resource type="Script" uid="uid://8s8ax26poog4" path="res://load_scene.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cas4k1o8clb7c" path="res://Drawing Assets/City Background Layers/IMG_4207.png" id="1_7vrkn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
+font_size = 60
+
+[node name="Control" type="Control" unique_id=284234005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1802562458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7vrkn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1183777279]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.29027778
+anchor_right = 0.5
+anchor_bottom = 0.29027778
+offset_left = -220.0
+offset_top = -41.5
+offset_right = 220.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sleepless Mage"
+label_settings = SubResource("LabelSettings_rhts7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=1367769146]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 54
+text = "Start Game"
+script = ExtResource("1_06t4h")
+scene = "uid://dgpbuoirg22gk"
