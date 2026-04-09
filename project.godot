@@ -20,9 +20,16 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Player": "res://Player.dch"
+}
+directories/dtl_directory={
+"Demo": "res://Drawing Assets/Demo.dtl"
+}
 layout/style_directory={}
+layout/style_list=[]
+layout/default_style="Default"
+glossary/default_case_sensitive=true
 
 [display]
 
