@@ -1,0 +1,50 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dgx0lugg7iio6"]
+
+[ext_resource type="Texture2D" uid="uid://cp84li6ibt6aw" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_7.png" id="1_2oxwg"]
+[ext_resource type="Texture2D" uid="uid://4648yok0jagy" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_1.png" id="2_i15x1"]
+[ext_resource type="Texture2D" uid="uid://c7c6b8c4upxxl" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_2.png" id="3_l2dw1"]
+[ext_resource type="Texture2D" uid="uid://n82pha8xkfws" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_3.png" id="4_gdpy5"]
+[ext_resource type="Texture2D" uid="uid://cy67etm8lh10t" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_4.png" id="5_j3js3"]
+[ext_resource type="Texture2D" uid="uid://g0owtlhate4s" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_5.png" id="6_gr8t0"]
+[ext_resource type="Texture2D" uid="uid://d1jxirvekf6bl" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_6.png" id="7_2wrud"]
+[ext_resource type="Texture2D" uid="uid://poyl1olk6wnk" path="res://Drawing Assets/Character-item sprites/Walk Cycle Frames/lil guy walk_8.png" id="8_g7ech"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2oxwg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i15x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l2dw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gdpy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j3js3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gr8t0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2wrud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2oxwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g7ech")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]

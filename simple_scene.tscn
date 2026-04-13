@@ -1,32 +1,58 @@
 [gd_scene format=3 uid="uid://dgpbuoirg22gk"]
 
-[ext_resource type="Texture2D" uid="uid://ke2qnnu0ywph" path="res://Drawing Assets/Character-item sprites/IMG_0905.png" id="1_mxq6n"]
-[ext_resource type="Script" uid="uid://byetcb7315lys" path="res://player_cotnroller.gd" id="1_tm5fx"]
-[ext_resource type="Texture2D" uid="uid://cas4k1o8clb7c" path="res://Drawing Assets/City Background Layers/IMG_4207.png" id="1_vli7i"]
-[ext_resource type="Texture2D" uid="uid://cnquu1qturmf4" path="res://Drawing Assets/City Background Layers/IMG_4198.png" id="2_32g2h"]
-[ext_resource type="Texture2D" uid="uid://cr06yhse6658b" path="res://Drawing Assets/Character-item sprites/IMG_0897.png" id="5_32g2h"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vli7i"]
-atlas = ExtResource("1_mxq6n")
-region = Rect2(772.66736, 256.34683, 704.1869, 494.1672)
+[ext_resource type="Script" uid="uid://byetcb7315lys" path="res://player_controller.gd" id="1_tm5fx"]
+[ext_resource type="Texture2D" uid="uid://bwyo81gv6bene" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #1.png" id="2_32g2h"]
+[ext_resource type="SpriteFrames" uid="uid://dgx0lugg7iio6" path="res://player_sprite_frames.tres" id="2_tm5fx"]
+[ext_resource type="Texture2D" uid="uid://d2m3eqhq7p8k2" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #2.png" id="3_alpa4"]
+[ext_resource type="Texture2D" uid="uid://rn0sjgiifgvr" path="res://Drawing Assets/City Background Layers/City_ Sky.png" id="3_w8mro"]
+[ext_resource type="Texture2D" uid="uid://ctx0f67l244ri" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #3.png" id="4_amsw1"]
+[ext_resource type="Texture2D" uid="uid://cv3tnn4re4fii" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Connected Buildings.png" id="5_pef06"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxq6n"]
 radius = 32.0
-height = 128.0
+height = 134.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vli7i"]
-size = Vector2(2112, 138)
+size = Vector2(9856, 138)
 
 [node name="Node2D" type="Node2D" unique_id=1592934994]
 
-[node name="Img4207" type="Sprite2D" parent="." unique_id=1300030535]
-position = Vector2(-131, -735)
-texture = ExtResource("1_vli7i")
+[node name="Background" type="CanvasLayer" parent="." unique_id=821489572]
+layer = -1
 
-[node name="Img4198" type="Sprite2D" parent="." unique_id=1568419439]
-position = Vector2(880, -576)
-scale = Vector2(0.625, 0.625)
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1742522842]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w8mro")
+expand_mode = 1
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=126557174]
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1755168109]
+
+[node name="CityFirstRowBuildingBridge#1" type="Sprite2D" parent="Parallax2D" unique_id=2125218251]
+position = Vector2(-816, -240)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_32g2h")
+
+[node name="CityFirstRowBuildingBridge#2" type="Sprite2D" parent="Parallax2D" unique_id=1371104243]
+position = Vector2(432, -240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_alpa4")
+
+[node name="CityFirstRowBuildingBridge#3" type="Sprite2D" parent="Parallax2D" unique_id=2055268413]
+position = Vector2(1776, -240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_amsw1")
+
+[node name="CityFirstRowConnectedBuildings" type="Sprite2D" parent="Parallax2D" unique_id=1694909023]
+position = Vector2(4112, -240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_pef06")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=530960047 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_tm5fx")
@@ -34,24 +60,27 @@ acceleration = 1750.0
 deceleration = 2000.0
 sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=526131172]
-position = Vector2(9.536743e-07, 0)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1421668538]
 scale = Vector2(0.285, 0.285)
-texture = SubResource("AtlasTexture_vli7i")
+sprite_frames = ExtResource("2_tm5fx")
+animation = &"walk"
+frame = 7
+frame_progress = 0.70619476
 offset = Vector2(-8.561409, -24.280703)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=337742795]
-shape = SubResource("CapsuleShape2D_mxq6n")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1240297839]
+position = Vector2(-6, 6)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1240297839]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=337742795]
+position = Vector2(3, 24)
+shape = SubResource("CapsuleShape2D_mxq6n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1307719221]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1266041807]
-position = Vector2(-16, 608)
+position = Vector2(1408, 608)
 shape = SubResource("RectangleShape2D_vli7i")
 
 [node name="Img0897" type="Sprite2D" parent="." unique_id=1026243335]
 position = Vector2(596, -145.99994)
 scale = Vector2(0.27363896, 0.26782754)
-texture = ExtResource("5_32g2h")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gpyqpfn1fqpt"]
 
 [ext_resource type="Script" uid="uid://8s8ax26poog4" path="res://load_scene.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://cas4k1o8clb7c" path="res://Drawing Assets/City Background Layers/IMG_4207.png" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://rn0sjgiifgvr" path="res://Drawing Assets/City Background Layers/City_ Sky.png" id="1_7vrkn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
 font_size = 60
@@ -11,10 +11,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-offset_right = -16.0
-offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -26,8 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7vrkn")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 1
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=1183777279]
 layout_mode = 1
