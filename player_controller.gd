@@ -10,7 +10,8 @@ var deceleration : float = 300.0
 var jump_velocity : float = -400.0
 @export
 var sprite : AnimatedSprite2D
-
+func _enter_tree() -> void:
+	add_to_group("player")
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

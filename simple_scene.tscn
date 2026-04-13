@@ -1,26 +1,83 @@
 [gd_scene format=3 uid="uid://dgpbuoirg22gk"]
 
-[ext_resource type="Script" uid="uid://byetcb7315lys" path="res://player_controller.gd" id="1_tm5fx"]
+[ext_resource type="Material" uid="uid://cpxw3berildow" path="res://shaders/weak_blur.tres" id="2_2l8vc"]
+[ext_resource type="Texture2D" uid="uid://bl7t3d4b3gsts" path="res://Drawing Assets/City Background Layers/City_ THIRD ROW - Building Bridge.png" id="2_17i0f"]
 [ext_resource type="Texture2D" uid="uid://bwyo81gv6bene" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #1.png" id="2_32g2h"]
-[ext_resource type="SpriteFrames" uid="uid://dgx0lugg7iio6" path="res://player_sprite_frames.tres" id="2_tm5fx"]
+[ext_resource type="Texture2D" uid="uid://b0a2c2djipll3" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Building Bridge #1.png" id="2_wy4s0"]
+[ext_resource type="Texture2D" uid="uid://b4h4d3nooncbw" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Building Bridge #2.png" id="3_2l8vc"]
 [ext_resource type="Texture2D" uid="uid://d2m3eqhq7p8k2" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #2.png" id="3_alpa4"]
 [ext_resource type="Texture2D" uid="uid://rn0sjgiifgvr" path="res://Drawing Assets/City Background Layers/City_ Sky.png" id="3_w8mro"]
+[ext_resource type="Texture2D" uid="uid://brsmx6eh8w0m0" path="res://Drawing Assets/City Background Layers/City_ THIRD ROW - Single Building.png" id="3_x0okp"]
 [ext_resource type="Texture2D" uid="uid://ctx0f67l244ri" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Building Bridge #3.png" id="4_amsw1"]
+[ext_resource type="Texture2D" uid="uid://csgd17w68chqk" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Single Building.png" id="4_ufui2"]
 [ext_resource type="Texture2D" uid="uid://cv3tnn4re4fii" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Connected Buildings.png" id="5_pef06"]
+[ext_resource type="Texture2D" uid="uid://chrj0m72bfo82" path="res://Drawing Assets/Character-item sprites/Construction worker/Worker Standing.png" id="8_17i0f"]
+[ext_resource type="Texture2D" uid="uid://dorwaouhfpkoe" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_ Left Floor.png" id="12_ufui2"]
+[ext_resource type="PackedScene" uid="uid://w3pmvbp4ygjl" path="res://scenes/mage.tscn" id="13_x0okp"]
+[ext_resource type="Script" uid="uid://dj2ouuu5acsfc" path="res://npc.gd" id="15_x17ct"]
+[ext_resource type="Resource" path="res://Bridge_Entrance_Dialogue.dtl" id="16_x17ct"]
+[ext_resource type="Texture2D" uid="uid://dh2wl7r4ystci" path="res://radial.svg" id="17_j7ikl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxq6n"]
-radius = 32.0
-height = 134.0
+[sub_resource type="Gradient" id="Gradient_x17ct"]
+colors = PackedColorArray(0, 0, 0, 1, 0.18, 0.12273002, 0.030600004, 0.39215687)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j7ikl"]
+gradient = SubResource("Gradient_x17ct")
+fill_from = Vector2(1, 0.45726496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vli7i"]
-size = Vector2(9856, 138)
+size = Vector2(9856, 133)
+
+[sub_resource type="Animation" id="Animation_x17ct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.747, 0.33999997, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j7ikl"]
+resource_name = "day->night"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.3333335, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.747, 0.33999997, 1), Color(0.03213002, 0.012599999, 0.18, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8plae"]
+_data = {
+&"RESET": SubResource("Animation_x17ct"),
+&"day->night": SubResource("Animation_j7ikl")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1592934994]
 
-[node name="Background" type="CanvasLayer" parent="." unique_id=821489572]
-layer = -1
+[node name="PointLight2D" type="DirectionalLight2D" parent="." unique_id=473979297]
+position = Vector2(110, 361)
+color = Color(1, 0.747, 0.33999997, 1)
+energy = 0.56
+blend_mode = 2
+range_layer_min = -5
 
-[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1742522842]
+[node name="Background5" type="CanvasLayer" parent="." unique_id=821489572]
+layer = -5
+
+[node name="TextureRect" type="TextureRect" parent="Background5" unique_id=1742522842]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,58 +86,377 @@ grow_vertical = 2
 texture = ExtResource("3_w8mro")
 expand_mode = 1
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=126557174]
+[node name="Background4" type="CanvasLayer" parent="." unique_id=922266699]
+layer = -4
+follow_viewport_enabled = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background4" unique_id=606676100]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect2" type="TextureRect" parent="Background4/Parallax2D2" unique_id=981644603]
+offset_left = -3504.0
+offset_top = 496.0
+offset_right = 6960.0
+offset_bottom = 1296.0
+texture = SubResource("GradientTexture2D_j7ikl")
+
+[node name="CityThirdRowBuildingBridge" type="Sprite2D" parent="Background4/Parallax2D2" unique_id=1881413857]
+position = Vector2(2128, -320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_17i0f")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge" unique_id=1913417842]
+position = Vector2(384, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge" unique_id=526463778]
+position = Vector2(-320, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CityThirdRowBuildingBridge3" type="Sprite2D" parent="Background4/Parallax2D2" unique_id=1364124954]
+position = Vector2(-96, -320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_17i0f")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge3" unique_id=502254008]
+position = Vector2(384, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge3" unique_id=1404914761]
+position = Vector2(-320, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CityThirdRowBuildingBridge2" type="Sprite2D" parent="Background4/Parallax2D2" unique_id=606064869]
+position = Vector2(3424, -320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_17i0f")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge2" unique_id=2059581269]
+position = Vector2(384, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowBuildingBridge2" unique_id=1069887968]
+position = Vector2(-320, -704)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CityThirdRowSingleBuilding" type="Sprite2D" parent="Background4/Parallax2D2" unique_id=1745902753]
+position = Vector2(560, -320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0okp")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background4/Parallax2D2/CityThirdRowSingleBuilding" unique_id=1930909896]
+position = Vector2(64.00049, -416)
+scale = Vector2(1.296875, 12.828947)
+energy = 4.06
+blend_mode = 2
+range_layer_min = -4
+range_layer_max = -4
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="Background4Blur" type="BackBufferCopy" parent="." unique_id=1655421877]
+material = ExtResource("2_2l8vc")
+copy_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background4Blur" unique_id=1686506198]
+layer = -3
+
+[node name="ColorRect" type="ColorRect" parent="Background4Blur/CanvasLayer" unique_id=233508187]
+material = ExtResource("2_2l8vc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background3" type="CanvasLayer" parent="." unique_id=409776369]
+layer = -3
+follow_viewport_enabled = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background3" unique_id=126557174]
 scroll_scale = Vector2(0.75, 0.75)
 
+[node name="CitySecondRowBuildingBridge#1" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=321811031]
+position = Vector2(1104, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wy4s0")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#1" unique_id=517815424]
+position = Vector2(512.0001, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#1" unique_id=650812574]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CitySecondRowBuildingBridge#3" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=467086265]
+position = Vector2(4064, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wy4s0")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#3" unique_id=516084908]
+position = Vector2(512.0001, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#3" unique_id=591624825]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CitySecondRowBuildingBridge#2" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=920594894]
+position = Vector2(2416, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2l8vc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#2" unique_id=287413293]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#2" unique_id=1352795328]
+position = Vector2(576.00006, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="CitySecondRowSingleBuilding" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=1636084656]
+position = Vector2(-752, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ufui2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowSingleBuilding" unique_id=1385962571]
+position = Vector2(0.00012207031, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="Background3Blur" type="BackBufferCopy" parent="." unique_id=1109897887]
+material = ExtResource("2_2l8vc")
+copy_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background3Blur" unique_id=119948927]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background3Blur/CanvasLayer" unique_id=1656252121]
+material = ExtResource("2_2l8vc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1755168109]
+metadata/_edit_lock_ = true
 
 [node name="CityFirstRowBuildingBridge#1" type="Sprite2D" parent="Parallax2D" unique_id=2125218251]
 position = Vector2(-816, -240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_32g2h")
 
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#1" unique_id=1002727274]
+position = Vector2(704, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#1" unique_id=1096486997]
+position = Vector2(-735.9999, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
 [node name="CityFirstRowBuildingBridge#2" type="Sprite2D" parent="Parallax2D" unique_id=1371104243]
 position = Vector2(432, -240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_alpa4")
+
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#2" unique_id=1123442472]
+position = Vector2(704, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#2" unique_id=215967160]
+position = Vector2(-639.9999, 416.00003)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
 
 [node name="CityFirstRowBuildingBridge#3" type="Sprite2D" parent="Parallax2D" unique_id=2055268413]
 position = Vector2(1776, -240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_amsw1")
 
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#3" unique_id=732453985]
+position = Vector2(704, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Parallax2D/CityFirstRowBuildingBridge#3" unique_id=1221501385]
+position = Vector2(-639.9999, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
 [node name="CityFirstRowConnectedBuildings" type="Sprite2D" parent="Parallax2D" unique_id=1694909023]
 position = Vector2(4112, -240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_pef06")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=530960047 node_paths=PackedStringArray("sprite")]
-script = ExtResource("1_tm5fx")
-acceleration = 1750.0
-deceleration = 2000.0
-sprite = NodePath("Sprite2D")
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D/CityFirstRowConnectedBuildings" unique_id=483657284]
+position = Vector2(704, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1421668538]
-scale = Vector2(0.285, 0.285)
-sprite_frames = ExtResource("2_tm5fx")
-animation = &"walk"
-frame = 7
-frame_progress = 0.70619476
-offset = Vector2(-8.561409, -24.280703)
+[node name="PointLight2D2" type="PointLight2D" parent="Parallax2D/CityFirstRowConnectedBuildings" unique_id=1319526804]
+position = Vector2(2047.9999, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1240297839]
-position = Vector2(-6, 6)
+[node name="PointLight2D3" type="PointLight2D" parent="Parallax2D/CityFirstRowConnectedBuildings" unique_id=1997250164]
+position = Vector2(-575.9999, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=337742795]
-position = Vector2(3, 24)
-shape = SubResource("CapsuleShape2D_mxq6n")
+[node name="PointLight2D4" type="PointLight2D" parent="Parallax2D/CityFirstRowConnectedBuildings" unique_id=842438544]
+position = Vector2(-2047.9998, 415.99997)
+scale = Vector2(1.296875, 12.828947)
+energy = 1.41
+blend_mode = 2
+texture = ExtResource("17_j7ikl")
+texture_scale = 1.14
+
+[node name="Mage" parent="." unique_id=356202923 instance=ExtResource("13_x0okp")]
+position = Vector2(-64, 432)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1307719221]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1266041807]
-position = Vector2(1408, 608)
+position = Vector2(1408, 610.5)
 shape = SubResource("RectangleShape2D_vli7i")
 
-[node name="Img0897" type="Sprite2D" parent="." unique_id=1026243335]
-position = Vector2(596, -145.99994)
-scale = Vector2(0.27363896, 0.26782754)
+[node name="BridgeSceneLeftFloor" type="TextureRect" parent="StaticBody2D" unique_id=334087227]
+visible = false
+texture_repeat = 2
+anchors_preset = -1
+offset_left = -4096.0
+offset_top = 544.0
+offset_right = 7664.0
+offset_bottom = 2050.0
+texture = ExtResource("12_ufui2")
+stretch_mode = 1
+
+[node name="WorkerStanding" type="Sprite2D" parent="." unique_id=1682027949]
+position = Vector2(320, 464)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_17i0f")
+script = ExtResource("15_x17ct")
+timeline = ExtResource("16_x17ct")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855892705]
+libraries/ = SubResource("AnimationLibrary_8plae")
+autoplay = &"day->night"

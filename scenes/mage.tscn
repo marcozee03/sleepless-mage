@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://w3pmvbp4ygjl"]
+
+[ext_resource type="Script" uid="uid://byetcb7315lys" path="res://player_controller.gd" id="1_y6d06"]
+[ext_resource type="SpriteFrames" uid="uid://dgx0lugg7iio6" path="res://player_sprite_frames.tres" id="2_t2cfv"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_46agn"]
+polygon = PackedVector2Array(-29, 32, -18, -35, 23, -37, 35, 35, 23, 86, -14, 85)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxq6n"]
+radius = 32.0
+height = 134.0
+
+[node name="Mage" type="CharacterBody2D" unique_id=356202923 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_y6d06")
+acceleration = 1750.0
+deceleration = 2000.0
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=118378313]
+scale = Vector2(0.285, 0.285)
+sprite_frames = ExtResource("2_t2cfv")
+animation = &"walk"
+frame = 7
+frame_progress = 0.70619476
+offset = Vector2(-8.561409, -24.280703)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2129818407]
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_46agn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1718972769]
+position = Vector2(-16, -336)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=749396972]
+position = Vector2(3, 24)
+shape = SubResource("CapsuleShape2D_mxq6n")
