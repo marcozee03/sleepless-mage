@@ -21,10 +21,23 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"Player": "res://Player.dch"
+"NPC_01": "res://NPC_01.dch",
+"NPC_02": "res://NPC_02.dch",
+"Player": "res://Player.dch",
+"Sign_Interactable": "res://Sign_Interactable.dch",
+"Worker": "res://Worker.dch"
 }
 directories/dtl_directory={
-"Demo": "res://Drawing Assets/Demo.dtl"
+"Bridge_Entrance_Dialogue": "res://Bridge_Entrance_Dialogue.dtl",
+"Bridge_Repaired_Dialogue": "res://Bridge_Repaired_Dialogue.dtl",
+"Demo": "res://Drawing Assets/Demo.dtl",
+"NPC_01_Dialogue": "res://NPC_01_Dialogue.dtl",
+"NPC_02_Dialogue": "res://NPC_02_Dialogue.dtl",
+"Player_Start_Dialogue": "res://Player_Start_Dialogue.dtl",
+"Sign_Dialogue": "res://Sign_Dialogue.dtl",
+"Truck_Save_Dialogue": "res://Truck_Save_Dialogue.dtl",
+"Wing_Drawing_Start_Dialogue": "res://Wing_Drawing_Start_Dialogue.dtl",
+"Worker_Saved_Dialogue": "res://Worker_Saved_Dialogue.dtl"
 }
 layout/style_directory={}
 layout/style_list=[]
