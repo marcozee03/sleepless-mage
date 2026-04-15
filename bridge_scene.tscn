@@ -1,0 +1,701 @@
+[gd_scene format=3 uid="uid://c0lf4ioau6kka"]
+
+[ext_resource type="Texture2D" uid="uid://rn0sjgiifgvr" path="res://Drawing Assets/City Background Layers/City_ Sky.png" id="1_prxha"]
+[ext_resource type="Texture2D" uid="uid://dh2wl7r4ystci" path="res://radial.svg" id="3_w5xly"]
+[ext_resource type="Material" uid="uid://cpxw3berildow" path="res://shaders/weak_blur.tres" id="5_onvpe"]
+[ext_resource type="Texture2D" uid="uid://b0a2c2djipll3" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Building Bridge #1.png" id="6_cigw7"]
+[ext_resource type="Texture2D" uid="uid://b4h4d3nooncbw" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Building Bridge #2.png" id="7_vjuju"]
+[ext_resource type="Texture2D" uid="uid://b6qs3rqbejq7l" path="res://Drawing Assets/Character-item sprites/Wings up.png" id="8_888d1"]
+[ext_resource type="Texture2D" uid="uid://csgd17w68chqk" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Single Building.png" id="8_qo84x"]
+[ext_resource type="Texture2D" uid="uid://cc80qam2ttq41" path="res://Drawing Assets/Character-item sprites/Wings down.png" id="9_prxha"]
+[ext_resource type="PackedScene" uid="uid://w3pmvbp4ygjl" path="res://scenes/mage.tscn" id="13_eof43"]
+[ext_resource type="Texture2D" uid="uid://dorwaouhfpkoe" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_ Left Floor.png" id="14_7t4ua"]
+[ext_resource type="Texture2D" uid="uid://c55kb7qcn05jc" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_Broken Bridge.png" id="14_bd320"]
+[ext_resource type="Texture2D" uid="uid://bv0hliijr4pvu" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_ Right Floor.png" id="15_4nqe8"]
+[ext_resource type="Texture2D" uid="uid://chrj0m72bfo82" path="res://Drawing Assets/Character-item sprites/Construction worker/Worker Standing.png" id="15_sjnc7"]
+[ext_resource type="Texture2D" uid="uid://db2ib23nfo0j0" path="res://Drawing Assets/Character-item sprites/Construction worker/Worker Dangling.png" id="16_888d1"]
+[ext_resource type="Script" uid="uid://dj2ouuu5acsfc" path="res://npc.gd" id="16_oes5l"]
+[ext_resource type="Resource" path="res://Bridge_Entrance_Dialogue.dtl" id="17_7n5ou"]
+[ext_resource type="Texture2D" uid="uid://dme2wuwy4gjvk" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_ Fixed Bridge.png" id="17_w5xly"]
+[ext_resource type="Texture2D" uid="uid://cgkh0ptx47c0p" path="res://Drawing Assets/Object Assets/Drawing Object Asset_Ramp.png" id="18_vf5hi"]
+[ext_resource type="Texture2D" uid="uid://bouj8krcrmvvk" path="res://Drawing Assets/Character-item sprites/Truck.png" id="19_onvpe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aagn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_888d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_prxha")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vli7i"]
+size = Vector2(9856, 272)
+
+[sub_resource type="Animation" id="Animation_888d1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorkerStanding:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorkerStanding:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1136, 336)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorkerStanding:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorkerStanding:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.35, 0.35)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorkerStanding:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_sjnc7")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mage:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(560, 320)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mage:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mage:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mage/AnimatedSprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mage/AnimatedSprite2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(736, -32)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mage/AnimatedSprite2D:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Mage/Sprite2D:flip_h")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("DrawingObjectAssetRamp:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Truck:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Truck:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2645, 256)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Truck:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BridgeSceneBrokenBridge:texture")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_bd320")]
+}
+
+[sub_resource type="Animation" id="Animation_w5xly"]
+resource_name = "rescue"
+length = 11.133333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorkerStanding:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorkerStanding:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333335, 0.33333334, 2.4, 3.01, 3.81, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1136, 336), Vector2(1152.0001, 336), Vector2(1184.0001, 448.00003), Vector2(1184, 496), Vector2(1184, 496), Vector2(1183.9999, 320), Vector2(736, 272), Vector2(740, 323)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorkerStanding:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333335, 0.33333334, 3.01, 3.81, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.23193255, 0.23193255, 0.23193255, 0.23193255, 0.23193255, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorkerStanding:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333335, 0.33333334, 3.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.35, 0.35), Vector2(0.35, 0.35), Vector2(0.35, 0.35), Vector2(0.35, 0.35), Vector2(0.35, 0.35)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorkerStanding:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_sjnc7"), ExtResource("16_888d1"), ExtResource("15_sjnc7")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mage:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.81, 2.2, 2.43, 3.01, 3.81, 5.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(560, 320), Vector2(560, 320), Vector2(1056, 240), Vector2(1200, 320), Vector2(1136, 160), Vector2(704, 112), Vector2(397, 310)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mage:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.81, 2.2, 2.43, 3.81, 5.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.36651915, 0.0, 0.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mage:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mage/AnimatedSprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mage/AnimatedSprite2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 1.29, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(736, -32), Vector2(288, -48), Vector2(0, 11.02)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mage/AnimatedSprite2D:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1, 1.29, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5824807, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Mage/Sprite2D:flip_h")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(2.2, 2.43, 5.02),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("DrawingObjectAssetRamp:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 7.8, 9.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Truck:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Truck:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(5.9, 7.37, 8.133333, 8.366667, 8.79),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2645, 262), Vector2(2045, 256), Vector2(2045, 256), Vector2(1782, 224.99995), Vector2(-15, -274)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Truck:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(5.9, 7.37, 8.133333, 8.366667, 8.79),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.28217003, 0.28217003]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BridgeSceneBrokenBridge:texture")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(9.88, 10.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("14_bd320"), ExtResource("17_w5xly")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vf5hi"]
+_data = {
+&"RESET": SubResource("Animation_888d1"),
+&"rescue": SubResource("Animation_w5xly")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1592934994]
+
+[node name="PointLight2D" type="DirectionalLight2D" parent="." unique_id=473979297]
+position = Vector2(110, 361)
+energy = 0.56
+blend_mode = 2
+range_layer_min = -5
+
+[node name="Background5" type="CanvasLayer" parent="." unique_id=821489572]
+layer = -5
+
+[node name="TextureRect" type="TextureRect" parent="Background5" unique_id=1742522842]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_prxha")
+expand_mode = 1
+
+[node name="Background4Blur" type="BackBufferCopy" parent="." unique_id=1655421877]
+material = ExtResource("5_onvpe")
+copy_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background4Blur" unique_id=1686506198]
+layer = -3
+
+[node name="ColorRect" type="ColorRect" parent="Background4Blur/CanvasLayer" unique_id=233508187]
+material = ExtResource("5_onvpe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background3" type="CanvasLayer" parent="." unique_id=409776369]
+layer = -3
+visible = false
+follow_viewport_enabled = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background3" unique_id=126557174]
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="CitySecondRowBuildingBridge#1" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=321811031]
+position = Vector2(1104, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_cigw7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#1" unique_id=517815424]
+position = Vector2(512.0001, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#1" unique_id=650812574]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="CitySecondRowBuildingBridge#3" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=467086265]
+position = Vector2(4064, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_cigw7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#3" unique_id=516084908]
+position = Vector2(512.0001, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#3" unique_id=591624825]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="CitySecondRowBuildingBridge#2" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=920594894]
+position = Vector2(2416, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_vjuju")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#2" unique_id=287413293]
+position = Vector2(-511.99985, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowBuildingBridge#2" unique_id=1352795328]
+position = Vector2(576.00006, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="CitySecondRowSingleBuilding" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=1636084656]
+position = Vector2(-752, -352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_qo84x")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background3/Parallax2D2/CitySecondRowSingleBuilding" unique_id=1385962571]
+position = Vector2(0.00012207031, -864)
+scale = Vector2(1.296875, 12.828947)
+energy = 2.91
+blend_mode = 2
+range_layer_min = -3
+range_layer_max = -3
+texture = ExtResource("3_w5xly")
+texture_scale = 1.14
+
+[node name="Background3Blur" type="BackBufferCopy" parent="." unique_id=1109897887]
+material = ExtResource("5_onvpe")
+copy_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background3Blur" unique_id=119948927]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background3Blur/CanvasLayer" unique_id=1656252121]
+material = ExtResource("5_onvpe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1755168109]
+metadata/_edit_lock_ = true
+
+[node name="Mage" parent="." unique_id=356202923 instance=ExtResource("13_eof43")]
+position = Vector2(560, 320)
+
+[node name="Camera2D" parent="Mage" index="2" unique_id=1718972769]
+position = Vector2(-16, -64)
+enabled = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mage" unique_id=1642446347]
+visible = false
+z_index = -1
+position = Vector2(736, -32)
+scale = Vector2(0.465, 0.465)
+sprite_frames = SubResource("SpriteFrames_aagn1")
+autoplay = "default"
+frame_progress = 0.81484765
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1307719221]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1266041807]
+position = Vector2(1408, 544)
+shape = SubResource("RectangleShape2D_vli7i")
+
+[node name="BridgeSceneLeftFloor" type="TextureRect" parent="StaticBody2D" unique_id=334087227]
+visible = false
+texture_repeat = 2
+anchors_preset = -1
+offset_left = -4096.0
+offset_top = 544.0
+offset_right = 7664.0
+offset_bottom = 2050.0
+texture = ExtResource("14_7t4ua")
+stretch_mode = 1
+
+[node name="WorkerStanding" type="Sprite2D" parent="." unique_id=1682027949]
+position = Vector2(1136, 336)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("15_sjnc7")
+flip_h = true
+script = ExtResource("16_oes5l")
+timeline = ExtResource("17_7n5ou")
+
+[node name="BridgeSceneBrokenBridge" type="Sprite2D" parent="." unique_id=987360435]
+position = Vector2(1328, 288)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("14_bd320")
+
+[node name="BridgeSceneLeftFloor" type="Sprite2D" parent="." unique_id=1039654302]
+position = Vector2(240, 1152)
+texture = ExtResource("14_7t4ua")
+
+[node name="BridgeSceneRightFloor" type="Sprite2D" parent="." unique_id=2048719306]
+position = Vector2(2304, 1152)
+texture = ExtResource("15_4nqe8")
+
+[node name="WorkerDangling" type="Sprite2D" parent="." unique_id=602790066]
+visible = false
+position = Vector2(1200, 495.99997)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("16_888d1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1673784159]
+position = Vector2(1312, 304)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1525075956]
+libraries/ = SubResource("AnimationLibrary_vf5hi")
+autoplay = &"rescue"
+
+[node name="DrawingObjectAssetRamp" type="Sprite2D" parent="." unique_id=854612510]
+visible = false
+position = Vector2(1603, 319)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("18_vf5hi")
+
+[node name="Truck" type="Sprite2D" parent="." unique_id=1294690379]
+visible = false
+position = Vector2(2645, 256)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("19_onvpe")
+
+[editable path="Mage"]

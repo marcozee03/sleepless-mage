@@ -12,11 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://csgd17w68chqk" path="res://Drawing Assets/City Background Layers/City_ SECOND ROW - Single Building.png" id="4_ufui2"]
 [ext_resource type="Texture2D" uid="uid://cv3tnn4re4fii" path="res://Drawing Assets/City Background Layers/City_ FIRST ROW - Connected Buildings.png" id="5_pef06"]
 [ext_resource type="Texture2D" uid="uid://chrj0m72bfo82" path="res://Drawing Assets/Character-item sprites/Construction worker/Worker Standing.png" id="8_17i0f"]
+[ext_resource type="Texture2D" uid="uid://br3p7qvb643ss" path="res://Sun hat.png" id="8_uu62g"]
 [ext_resource type="Texture2D" uid="uid://dorwaouhfpkoe" path="res://Drawing Assets/Bridge Background Layers/Bridge_Scene_ Left Floor.png" id="12_ufui2"]
 [ext_resource type="PackedScene" uid="uid://w3pmvbp4ygjl" path="res://scenes/mage.tscn" id="13_x0okp"]
 [ext_resource type="Script" uid="uid://dj2ouuu5acsfc" path="res://npc.gd" id="15_x17ct"]
 [ext_resource type="Resource" path="res://Bridge_Entrance_Dialogue.dtl" id="16_x17ct"]
 [ext_resource type="Texture2D" uid="uid://dh2wl7r4ystci" path="res://radial.svg" id="17_j7ikl"]
+[ext_resource type="Texture2D" uid="uid://cfqibqliybb5r" path="res://Drawing Assets/Character-item sprites/Baseball hat.png" id="18_81b8m"]
+[ext_resource type="Texture2D" uid="uid://dqgfgavb7prss" path="res://Drawing Assets/Character-item sprites/Pirate hat.png" id="19_fxwob"]
 
 [sub_resource type="Gradient" id="Gradient_x17ct"]
 colors = PackedColorArray(0, 0, 0, 1, 0.18, 0.12273002, 0.030600004, 0.39215687)
@@ -216,6 +219,19 @@ follow_viewport_enabled = true
 
 [node name="Parallax2D2" type="Parallax2D" parent="Background3" unique_id=126557174]
 scroll_scale = Vector2(0.75, 0.75)
+
+[node name="BaseballHat3" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=848325683]
+z_index = 1
+position = Vector2(448, 463.99997)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("19_fxwob")
+flip_h = true
+
+[node name="BaseballHat5" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=269601588]
+z_index = 1
+position = Vector2(1791.9999, 432)
+scale = Vector2(0.295, 0.295)
+texture = ExtResource("8_uu62g")
 
 [node name="CitySecondRowBuildingBridge#1" type="Sprite2D" parent="Background3/Parallax2D2" unique_id=321811031]
 position = Vector2(1104, -352)
@@ -460,3 +476,16 @@ timeline = ExtResource("16_x17ct")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855892705]
 libraries/ = SubResource("AnimationLibrary_8plae")
 autoplay = &"day->night"
+
+[node name="BaseballHat" type="Sprite2D" parent="." unique_id=2327848]
+z_index = -1
+position = Vector2(1744, -640.00006)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("18_81b8m")
+
+[node name="BaseballHat2" type="Sprite2D" parent="." unique_id=165353017]
+z_index = -1
+position = Vector2(3455.9998, -640)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("19_fxwob")
+flip_h = true
